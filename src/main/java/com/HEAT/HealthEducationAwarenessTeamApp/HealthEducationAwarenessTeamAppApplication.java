@@ -9,5 +9,5 @@ public class HealthEducationAwarenessTeamAppApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(HealthEducationAwarenessTeamAppApplication.class, args);
 	}
-
+	
 }

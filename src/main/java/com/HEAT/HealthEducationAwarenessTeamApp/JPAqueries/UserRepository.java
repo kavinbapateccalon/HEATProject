@@ -1,6 +1,6 @@
-package com.HEAT.HealthEducationAwarenessTeamApp.Repositories;
+package com.HEAT.HealthEducationAwarenessTeamApp.JPAqueries;
 
-import com.HEAT.HealthEducationAwarenessTeamApp.User;
+import com.HEAT.HealthEducationAwarenessTeamApp.Models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

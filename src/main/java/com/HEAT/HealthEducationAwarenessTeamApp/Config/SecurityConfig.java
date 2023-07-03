@@ -1,4 +1,4 @@
-package com.HEAT.HealthEducationAwarenessTeamApp.config;
+package com.HEAT.HealthEducationAwarenessTeamApp.Config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

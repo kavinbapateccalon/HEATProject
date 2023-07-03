@@ -1,4 +1,4 @@
-package com.HEAT.HealthEducationAwarenessTeamApp.auth;
+package com.HEAT.HealthEducationAwarenessTeamApp.AuthControllers;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

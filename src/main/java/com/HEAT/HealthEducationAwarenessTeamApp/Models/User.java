@@ -1,4 +1,4 @@
-package com.HEAT.HealthEducationAwarenessTeamApp;
+package com.HEAT.HealthEducationAwarenessTeamApp.Models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

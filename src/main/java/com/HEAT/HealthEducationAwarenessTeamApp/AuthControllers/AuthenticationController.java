@@ -1,7 +1,6 @@
-package com.HEAT.HealthEducationAwarenessTeamApp.auth;
+package com.HEAT.HealthEducationAwarenessTeamApp.AuthControllers;
 
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

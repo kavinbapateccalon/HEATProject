@@ -1,9 +1,9 @@
-package com.HEAT.HealthEducationAwarenessTeamApp.auth;
+package com.HEAT.HealthEducationAwarenessTeamApp.AuthControllers;
 
-import com.HEAT.HealthEducationAwarenessTeamApp.Repositories.UserRepository;
-import com.HEAT.HealthEducationAwarenessTeamApp.User;
-import com.HEAT.HealthEducationAwarenessTeamApp.config.JWTService;
-import com.HEAT.HealthEducationAwarenessTeamApp.Role;
+import com.HEAT.HealthEducationAwarenessTeamApp.JPAqueries.UserRepository;
+import com.HEAT.HealthEducationAwarenessTeamApp.Models.User;
+import com.HEAT.HealthEducationAwarenessTeamApp.Config.JWTService;
+import com.HEAT.HealthEducationAwarenessTeamApp.Models.Role;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;

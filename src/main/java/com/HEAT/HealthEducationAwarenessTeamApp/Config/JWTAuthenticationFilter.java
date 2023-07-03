@@ -1,4 +1,4 @@
-package com.HEAT.HealthEducationAwarenessTeamApp.config;
+package com.HEAT.HealthEducationAwarenessTeamApp.Config;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

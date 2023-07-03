@@ -1,4 +1,4 @@
-package com.HEAT.HealthEducationAwarenessTeamApp.welcome;
+package com.HEAT.HealthEducationAwarenessTeamApp.Controllers;
 
 
 import org.springframework.http.ResponseEntity;

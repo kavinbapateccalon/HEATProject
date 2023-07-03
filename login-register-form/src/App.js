@@ -1,8 +1,11 @@
 import React, {useState} from "react";
 import logo from './logo.svg';
 import './App.css';
-import { Register } from "./Register";
-import { Login } from "./Login";
+import { Register } from "./pages/Register";
+import { Login } from "./pages/Login";
+import { Survey } from "./pages/Survey"
+import { BrowserRouter as Router, Routes, Route }
+    from 'react-router-dom';
 
 function App() {
   const [currentForm, setCurrentForm] = useState('login');
@@ -12,12 +15,17 @@ function App() {
   }
 
   return (
-    <div className="App">
-      {
-        currentForm == "login" ? <Login onFormSwitch={toggleForm}/> : <Register onFormSwitch={toggleForm}/>
-      }
-      
-    </div>
+    <><Router>
+        <Routes>
+            <Route path='/' element={currentForm == "login" ? <Login onFormSwitch={toggleForm} /> : <Register onFormSwitch={toggleForm} />} /> 
+            <Route path='/questionnaire' element={<Survey />} />
+
+        </Routes>
+
+    </Router>
+        
+
+      </>
   );
 }
 

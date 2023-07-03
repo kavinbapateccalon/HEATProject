@@ -15,6 +15,7 @@ export const Survey = (props) => {
 
     // what is displayed - return value
     return (
+        <div className="App">
         <div className="auth-form-container">
             <h1>Wellness Onboarding Survey</h1>
             
@@ -1302,6 +1303,7 @@ export const Survey = (props) => {
                     <button type="submit">Submit</button>
 
             </form>
+        </div>
         </div>
     )
 }

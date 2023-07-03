@@ -17,6 +17,7 @@ export const Register = (props) => {
 
     // what is displayed - return value
     return (
+        <div className="App">
         <div className="auth-form-container">
             <h2>Register</h2>
         <form className="register-form" onSubmit={handleSubmit}>
@@ -39,6 +40,7 @@ export const Register = (props) => {
 
         </form>
         <button className="link-btn" onClick={() => props.onFormSwitch('login')}>Already have an account? Log in here.</button>
+    </div>
     </div>
     )
 }

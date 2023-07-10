@@ -8,7 +8,7 @@
   background-image: linear-gradient(79deg, #7439db, #c66f8c, #f7944d)
 }
 
-.auth-form-container, .login-form, .register-form {
+.auth-form-container, .login-form, .register-form, .questionnaire, .metric-questions {
   display: flex;
   flex-direction: column;
 }
@@ -46,4 +46,25 @@ button {
   background: none;
   color: white;
   text-decoration: underline;
+}
+
+.dropdown {
+  text-align: left;
+  padding: 10px;
+  margin-left: 10px;
+}
+
+.answerchoice {
+  display: inline;
+  padding: 20px;
+}
+
+.answerchoicetext {
+  display: inline;
+  padding: 22px;
+}
+
+
+.buttons1-10, .answers1-10{
+  text-align: left;
 }

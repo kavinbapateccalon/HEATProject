@@ -8,6 +8,7 @@ import io.jsonwebtoken.security.Keys;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import java.security.Key;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -32,14 +33,19 @@ public class JWTService {
         return generateToken(new HashMap<>(), userDetails);
     }
 
-    public String generateToken (Map<String, Object> extraClaims,
-        UserDetails userDetails) {
-        return Jwts
-                .builder()
+    public String generateToken(Map<String, Object> extraClaims, UserDetails userDetails) {
+        Date issuedAt = new Date();
+        Calendar expiration = Calendar.getInstance();
+        expiration.setTime(issuedAt);
+        expiration.add(Calendar.HOUR, 24);
+
+        return Jwts.builder()
                 .setClaims(extraClaims)
                 .setSubject(userDetails.getUsername())
-                .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() * 1000 * 60 * 24)).signWith(getSignInKey(), SignatureAlgorithm.HS256).compact();
+                .setIssuedAt(issuedAt)
+                .setExpiration(expiration.getTime())
+                .signWith(getSignInKey(), SignatureAlgorithm.HS256)
+                .compact();
     }
 
     public boolean isTokenValid (String jwt_token, UserDetails userDetails) {

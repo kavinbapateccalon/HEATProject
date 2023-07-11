@@ -1,31 +1,46 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Register } from "./pages/Register";
-import { Login } from "./pages/Login";
-import { Survey } from "./pages/Survey"
-import { BrowserRouter as Router, Routes, Route }
-    from 'react-router-dom';
+import { Register } from './pages/Register';
+import { Login } from './pages/Login';
+import { Survey } from './pages/Survey';
+import Welcome from './pages/Welcome';
+
+import { AuthProvider } from './utils/AuthProvider';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from 'react-router-dom';
+
+import PrivateRoute from './utils/PrivateRoute';
 
 function App() {
-  const [currentForm, setCurrentForm] = useState('login');
-
-  const toggleForm = (formName) => {
-    setCurrentForm(formName);
-  }
-
   return (
-    <><Router>
+    <AuthProvider>
+      <Router>
         <Routes>
-            <Route path='/' element={currentForm == "login" ? <Login onFormSwitch={toggleForm} /> : <Register onFormSwitch={toggleForm} />} /> 
-            <Route path='/questionnaire' element={<Survey />} />
-
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/questionnaire"
+            element={
+              <PrivateRoute>
+                <Survey />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/welcome"
+            element={
+              <PrivateRoute>
+                <Welcome />
+              </PrivateRoute>
+            }
+          />
         </Routes>
-
-    </Router>
-        
-
-      </>
+      </Router>
+    </AuthProvider>
   );
 }
 

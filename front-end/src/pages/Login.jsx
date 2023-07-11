@@ -1,35 +1,74 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from 'react';
+import axios from 'axios';
+import AuthContext from '../utils/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 
-// component that is imported by main App.js file to display
 export const Login = (props) => {
+  const [email_input, setEmail] = useState('');
+  const [password_input, setPassword] = useState('');
+  const { setAccessToken, setIsLoggedIn } = useContext(AuthContext);
 
-    // update functionionality for email and password
-    const [email, setEmail] = useState('');
-    const [pass, setPass] = useState('');
+  const navigate = useNavigate();
 
-    // action when submitting form
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(email);
-    }
+  // useEffect(() => {
+  //   console.log('isLoggedIn:', '');
+  // }, [setIsLoggedIn]);
 
-    // what is displayed - return value
-    return (
-        <div className="App">
-        <div className="auth-form-container">
-            <h2>Log In</h2>
-            <form className="login-form" onSubmit={handleSubmit}>
-                <label htmlFor="email">email</label>
-                <input value={email} type="email" placeholder="youremail@example.com" id="email" name="email"/>
+  const handleLogin = (e) => {
+    e.preventDefault();
 
-                <label htmlFor="password">password</label>
-                <input value={pass} type="password" placeholder="********" id="password" name="password"/>
+    const requestBody = {
+      email: email_input,
+      password: password_input,
+    };
+    axios
+      .post('api/auth/login', requestBody)
+      .then((response) => {
+        const token = response.data.token;
+        setAccessToken(token);
+        setIsLoggedIn(true);
+        navigate('/welcome');
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
 
-                <button type="submit">Log In</button>
+  // Rest of the component code
 
-            </form>
-            <button className="link-btn" onClick={() => props.onFormSwitch('register')}>Don't have an account? Register here.</button>
-        </div>
-        </div>
-    )
-}
+  // what is displayed - return value
+  return (
+    <div className="App">
+      <div className="auth-form-container">
+        <h2>Log In</h2>
+        <form className="login-form" onSubmit={handleLogin}>
+          <label htmlFor="email">email</label>
+          <input
+            value={email_input}
+            type="email"
+            id="email"
+            name="email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+
+          <label htmlFor="password">password</label>
+          <input
+            value={password_input}
+            type="password"
+            id="password"
+            name="password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <button type="submit">Log In</button>
+        </form>
+        <button
+          className="link-btn"
+          onClick={() => navigate('/register')}
+        >
+          Don't have an account? Register here.
+        </button>
+      </div>
+    </div>
+  );
+};

@@ -4,26 +4,22 @@ import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import '../App.css';
 
-const Welcome = (props) => {
-  const { accessToken, isLoggedIn } = useContext(AuthContext);
+const Home = (props) => {
   const navigate = useNavigate();
 
   return (
     <>
       <div className="App">
         <div className="auth-form-container">
-          <h1>Welcome to HEAT User!</h1>
+          <h1>HEAT Homepage</h1>
           <br />
-          <p>
-            Please fill aout the questionnaire to start using your
-            Health Education Awareness Team Account.
-          </p>
+          <p>Get started by registering an account</p>
           <div>
             <button
               className="button"
-              onClick={() => navigate('/survey')}
+              onClick={() => navigate('/register')}
             >
-              Start Questionnaire
+              Register
             </button>
           </div>
         </div>
@@ -32,4 +28,4 @@ const Welcome = (props) => {
   );
 };
 
-export default Welcome;
+export default Home;

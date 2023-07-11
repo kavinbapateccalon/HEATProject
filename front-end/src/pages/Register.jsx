@@ -13,9 +13,7 @@ export const Register = (props) => {
   const [confirmPassword_input, setConfirmPassword] = useState('');
   // const { setJwtToken } = useContext(AuthContext);
   const accessToken = useContext(AuthContext);
-  console.log(accessToken);
   const isLoggedIn = useContext(AuthContext);
-  console.log('isLoggedIn: ', isLoggedIn);
   const navigate = useNavigate();
 
   // action when submitting form
@@ -35,6 +33,7 @@ export const Register = (props) => {
       .post('api/auth/register', requestBody)
       .then((response) => {
         console.log('successfully registered');
+        navigate('/login');
       })
       .catch((err) => {
         console.error(err);

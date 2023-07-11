@@ -3,8 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 import { Register } from './pages/Register';
 import { Login } from './pages/Login';
-import { Survey } from './pages/Survey';
 import Welcome from './pages/Welcome';
+import { Survey } from './pages/Survey';
+import { MetricSurvey } from './pages/MetricSurvey';
+import Home from './pages/Home';
 
 import { AuthProvider } from './utils/AuthProvider';
 import {
@@ -22,11 +24,20 @@ function App() {
         <Routes>
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Home />} />
           <Route
-            path="/questionnaire"
+            path="/survey"
             element={
               <PrivateRoute>
                 <Survey />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/metricsurvey"
+            element={
+              <PrivateRoute>
+                <MetricSurvey />
               </PrivateRoute>
             }
           />

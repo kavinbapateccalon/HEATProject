@@ -9,7 +9,6 @@ import { MetricSurvey } from './pages/MetricSurvey';
 import Home from './pages/Home';
 import Dashboard from './pages/Recommendations/Dashboard';
 import Navbar from './utils/Navbar';
-import { Community } from './pages/Community/Recommendations';
 import Friends from './pages/Community/Friends';
 import Feed from './pages/Community/Feed';
 import Groups from './pages/Community/Groups';

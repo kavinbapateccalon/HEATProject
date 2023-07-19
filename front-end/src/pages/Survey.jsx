@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import AuthContext from '../utils/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 
 export const Survey = (props) => {
   const accessToken = useContext(AuthContext);
-  console.log(accessToken);
+  // console.log(accessToken);
+  const navigate = useNavigate();
 
   // action when submitting form
   const handleSubmit = (e) => {
@@ -2921,7 +2923,11 @@ export const Survey = (props) => {
             </select>
           </div>
 
-          <button type="submit">Submit</button>
+          <button
+            onClick={() => navigate('/recommendations/dashboard')}
+          >
+            Submit Survey
+          </button>
         </form>
       </div>
     </div>

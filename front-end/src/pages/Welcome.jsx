@@ -15,7 +15,7 @@ const Welcome = (props) => {
           <h1>Welcome to HEAT User!</h1>
           <br />
           <p>
-            Please fill aout the questionnaire to start using your
+            Please fill out the questionnaire to start using your
             Health Education Awareness Team Account.
           </p>
           <div>

@@ -2603,8 +2603,10 @@ export const Survey = (props) => {
           </label>
           <div className="dropdown">
             <select name="yesorno" id="qf1">
-              <option value="yes">yes</option>
-              <option value="no">no</option>
+              <option value="heart condition">heart condition</option>
+              <option value="high blood pressure">high blood pressure</option>
+              <option value="both">both</option>
+              <option value="neither">neither</option>
             </select>
           </div>
 
@@ -2687,20 +2689,84 @@ export const Survey = (props) => {
           </div>
 
           <label htmlFor="qf8">
-            8. What are your Fitness and Nutrition goals? (List 3)
+            8. What are your Fitness and Nutrition goals? (Select 3)
           </label>
-          <input type="text" placeholder="" id="qf8" name="qf8" />
+          <div className="checkboxes">
+            <div>
+            <input type="checkbox" id="goals" name="goals" value="Learn to eat a balanced diet" />Learn to eat a balanced diet</div>
+            <div>
+            <input type="checkbox" id="goals" name="goals" value="Decrease body fat" />Decrease body Fat</div>
+            <div>
+            <input type="checkbox" id="goals" name="goals" value="Tone muscles" />Tone muscles</div>
+            <div>
+            <input type="checkbox" id="goals" name="goals" value="Learn to balance activity & diet" />Learn to balance activity & diet</div>
+            <div>
+            <input type="checkbox" id="goals" name="goals" value="Reduce stress" />Reduce stress</div>
+            <div>
+            <input type="checkbox" id="goals" name="goals" value="Increase strength & power" />Increase strength & power</div>
+            <div>
+            <input type="checkbox" id="goals" name="goals" value="Create a healthy lifestyle" />Create a healthy lifestyle</div>
+            <div>
+            <input type="checkbox" id="goals" name="goals" value="Feel better" />Feel better</div>
+            <div>
+            <input type="checkbox" id="goals" name="goals" value="Improve speed/agility" />Improve speed/agility</div>
+            <div>
+            <input type="checkbox" id="goals" name="goals" value="Increase flexibility" />Increase flexibility</div>
+            <div>
+            <input type="checkbox" id="goals" name="goals" value="Improve overall health" />Improve overall health</div>
+            <div>
+            <input type="checkbox" id="goals" name="goals" value="Improve athletic performance" />Improve athletic performance</div>
+            <div>
+            <input type="checkbox" id="goals" name="goals" value="Maintain healthy weight" />Maintain healthy weight</div>
+            <div>
+            <input type="checkbox" id="goals" name="goals" value="Increase endurance" />Increase Endurance</div>
+            <div>
+            <input type="checkbox" id="goals" name="goals" value="Other" />Other</div>
+          </div>
 
           <label htmlFor="qf9">
             9. What is keeping you from achieving your Fitness and
-            Nutrition Goals? (List multiple)
+            Nutrition Goals? (Check all that apply)
           </label>
-          <input type="text" placeholder="" id="qf9" name="qf9" />
+          <div className='checkboxes'>
+            <div>
+            <input type="checkbox" id="obstacles" name="obstacles" value="Lack of motivation" />Lack of motivation</div>
+            <div>
+            <input type="checkbox" id="obstacles" name="obstacles" value="Lack of equipment" />Lack of equipment</div>
+            <div>
+            <input type="checkbox" id="obstacles" name="obstacles" value="Time" />Time</div>
+            <div>
+            <input type="checkbox" id="obstacles" name="obstacles" value="Hitting a plateau" />Hitting a plateau</div>
+            <div>
+            <input type="checkbox" id="obstacles" name="obstacles" value="Self-conscious" />Self-conscious</div>
+            <div>
+            <input type="checkbox" id="obstacles" name="obstacles" value="Not knowing where/how to begin" />Not knowing where/how to begin</div>
+            <div>
+            <input type="checkbox" id="obstacles" name="obstacles" value="Lack of results" />Lack of results</div>
+            <div>
+            <input type="checkbox" id="obstacles" name="obstacles" value="Money" />Money</div>
+            <div>
+            <input type="checkbox" id="obstacles" name="obstacles" value="Other" />Other</div>
+          </div>
 
           <label htmlFor="qf10">
-            10. What motivates you? (List multiple)
+            10. What motivates you? (Check all that apply)
           </label>
-          <input type="text" placeholder="" id="qf10" name="qf10" />
+          <div className='checkboxes'>
+          <div>
+            <input type="checkbox" id="motivations" name="motivations" value="Seeing results" />Seeing results
+            </div><div>
+            <input type="checkbox" id="motivations" name="motivations" value="Having fun" />Havin fun
+            </div><div>
+            <input type="checkbox" id="motivations" name="motivations" value="Praise/Rewards" />Praise/Rewards
+            </div><div>
+            <input type="checkbox" id="motivations" name="motivations" value="Accountability" />Accountability
+            </div><div>
+            <input type="checkbox" id="motivations" name="motivations" value="Feeling better" />Feeling better
+            </div><div>
+            <input type="checkbox" id="motivations" name="motivations" value="Other" />Other
+            </div>
+          </div>
 
           <label htmlFor="qf11">
             11. Do you follow a current exercise regime?
@@ -2919,6 +2985,52 @@ export const Survey = (props) => {
               <option value="sometimes">sometimes</option>
               <option value="often">often</option>
             </select>
+          </div>
+
+          <label htmlFor="qf23">23. Do you eat past the point of fullness?</label>
+          <div className="dropdown">
+            <select name="multipledropdown" id="qf23">
+              <option value="never">never</option>
+              <option value="sometimes">sometimes</option>
+              <option value="often">often</option>
+            </select>
+          </div>
+
+          <label htmlFor="qf24">24. Would you find cooking classes helpful?</label>
+          <div className="dropdown">
+            <select name="yesorno" id="qf24">
+              <option value="yes">yes</option>
+              <option value="no">no</option>
+            </select>
+          </div>
+
+          <label htmlFor="qf25">25. At work do you usually:</label>
+          <div className="dropdown">
+            <select name="multipledropdown" id="qf25">
+              <option value="Bring food">Bring food</option>
+              <option value="Eat out">Eat out</option>
+            </select>
+          </div>
+
+          <label htmlFor="qf26">26. How many times a week do you eat out?</label>
+          <input type="text" placeholder="" id="qf26" name="qf26" />
+
+          <label htmlFor="qf27">
+            27. Would you like to speak to any additional resources?
+          </label>
+          <div className='checkboxes'>
+            <div>
+            <input type="checkbox" id="resources" name="resources" value="Chaplain" />Chaplain</div>
+            <div>
+            <input type="checkbox" id="resources" name="resources" value="Family Readiness" />Family Readiness</div>
+            <div>
+            <input type="checkbox" id="resources" name="resources" value="Psychological Health" />Psychological Health</div>
+            <div>
+            <input type="checkbox" id="resources" name="resources" value="SAPR" />SAPR</div>
+            <div>
+            <input type="checkbox" id="resources" name="resources" value="Medical Group" />Medical Group</div>
+            <div>
+            <input type="checkbox" id="resources" name="resources" value="Legal" />Legal</div>
           </div>
 
           <button type="submit">Submit</button>

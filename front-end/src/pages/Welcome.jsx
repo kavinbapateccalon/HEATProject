@@ -18,12 +18,20 @@ const Welcome = (props) => {
             Please fill aout the questionnaire to start using your
             Health Education Awareness Team Account.
           </p>
-          <div>
+          <div className='welcomebuttons'>
             <button
               className="button"
               onClick={() => navigate('/survey')}
             >
               Start Questionnaire
+            </button>
+          </div>
+          <div>
+          <button
+              className="button"
+              onClick={() => navigate('/metricsurvey')}
+            >
+              Take Metric Survey
             </button>
           </div>
         </div>

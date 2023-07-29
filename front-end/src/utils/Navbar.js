@@ -7,7 +7,12 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { accessToken, isLoggedIn, setAccessToken, setIsLoggedIn } =
     useContext(AuthContext);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [
+    recommendationsDropdownOpen,
+    setRecommendationsDropdownOpen,
+  ] = useState(false);
+  const [communityDropdownOpen, setCommunityDropdownOpen] =
+    useState(false);
 
   const handleLogout = (e) => {
     e.preventDefault();
@@ -19,17 +24,18 @@ const Navbar = () => {
     }
   };
 
-  const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
+  const toggleRecommendationsDropdown = () => {
+    setRecommendationsDropdownOpen(!recommendationsDropdownOpen);
   };
 
-  const toggleSocialDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
+  const toggleCommunityDropdown = () => {
+    setCommunityDropdownOpen(!communityDropdownOpen);
   };
 
   const handleOptionClick = (route) => {
     navigate(route);
-    setDropdownOpen(false);
+    setRecommendationsDropdownOpen(false);
+    setCommunityDropdownOpen(false);
   };
 
   return (
@@ -46,12 +52,17 @@ const Navbar = () => {
           </li>
 
           <li
-            className={`dropdown-nav ${dropdownOpen ? 'open' : ''}`}
+            className={`dropdown-nav ${
+              recommendationsDropdownOpen ? 'open' : ''
+            }`}
           >
-            <button className="navbar-btn" onClick={toggleDropdown}>
+            <button
+              className="navbar-btn"
+              onClick={toggleRecommendationsDropdown}
+            >
               Recommendations
             </button>
-            {dropdownOpen && (
+            {recommendationsDropdownOpen && (
               <ul className="dropdown-menu">
                 <li>
                   <button
@@ -100,17 +111,19 @@ const Navbar = () => {
           </li>
 
           <li
-            className={`dropdown-nav ${dropdownOpen ? 'open' : ''}`}
+            className={`dropdown-nav ${
+              communityDropdownOpen ? 'open' : ''
+            }`}
           >
             <button
               className="navbar-btn"
-              onClick={toggleSocialDropdown}
+              onClick={toggleCommunityDropdown}
             >
               Community
             </button>
-            {dropdownOpen && (
+            {communityDropdownOpen && (
               <ul className="dropdown-menu">
-                <li>
+                {/* <li>
                   <button
                     className="link-btn"
                     onClick={() =>
@@ -119,17 +132,7 @@ const Navbar = () => {
                   >
                     Feed
                   </button>
-                </li>
-                <li>
-                  <button
-                    className="link-btn"
-                    onClick={() =>
-                      handleOptionClick('/community/friends')
-                    }
-                  >
-                    Friends
-                  </button>
-                </li>
+                </li> */}
                 <li>
                   <button
                     className="link-btn"

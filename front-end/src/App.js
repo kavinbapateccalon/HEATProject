@@ -16,6 +16,7 @@ import { AuthProvider } from './utils/AuthProvider';
 import Fitness from './pages/Recommendations/Fitness';
 import Nutrition from './pages/Recommendations/Nutrition';
 import MentalHealth from './pages/Recommendations/MentalHealth';
+import GroupView from './pages/Community/GroupView';
 import {
   BrowserRouter as Router,
   Routes,
@@ -137,6 +138,17 @@ function App() {
                 <Navbar />
                 <PrivateRoute>
                   <Groups />
+                </PrivateRoute>
+              </>
+            }
+          />
+          <Route
+            path="/community/group/:groupId"
+            element={
+              <>
+                <Navbar />
+                <PrivateRoute>
+                  <GroupView />
                 </PrivateRoute>
               </>
             }

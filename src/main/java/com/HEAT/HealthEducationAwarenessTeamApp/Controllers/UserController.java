@@ -12,23 +12,23 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/get-user")
+@RequestMapping("/api/user")
 public class UserController {
-    private final UserRepository repository;
+    private final UserRepository userRepository;
 
-    @GetMapping
+    @GetMapping("/get")
     public ResponseEntity<User> getCurrentUser(@AuthenticationPrincipal User user) {
         // Retrieve the email of the currently authenticated user
         String email = user.getUsername();
 
-        // Retrieve the user from the repository or service based on the email
-        Optional<User> currentUser = repository.findByEmail(email);
-        if (currentUser == null) {
+        // Retrieve the user from the userRepository or service based on the email
+        Optional<User> currentUser = userRepository.findByEmail(email);
+        if (currentUser.isEmpty()) {
             // User not found, handle accordingly (e.g., return a 404 error)
             return ResponseEntity.notFound().build();
         }
 
         // Return the user object
-        return ResponseEntity.ok(user);
+        return ResponseEntity.ok(currentUser.get());
     }
 }

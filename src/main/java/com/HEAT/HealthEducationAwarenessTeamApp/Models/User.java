@@ -1,5 +1,6 @@
 package com.HEAT.HealthEducationAwarenessTeamApp.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -34,6 +35,39 @@ public class User implements UserDetails {
 
     @Enumerated(EnumType.STRING)
     private Role role;
+//    @ManyToMany
+//    @JoinTable(
+//            name = "user_friends",
+//            joinColumns = @JoinColumn(name = "user_id"),
+//            inverseJoinColumns = @JoinColumn(name = "friend_id")
+//    )
+//    private List<User> friends;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "group_members",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "group_id")
+    )
+    private List<Group> groups;
+    public List<Group> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(List<Group> groups) {
+        this.groups = groups;
+    }
+
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private List<Post> posts;
+//    public List<User> getFriends() {
+//        return friends;
+//    }
+//
+//    public void setFriends(List<User> friends) {
+//        this.friends = friends;
+//    }
 
     public long getId() {
         return id;

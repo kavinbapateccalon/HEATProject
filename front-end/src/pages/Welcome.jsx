@@ -13,7 +13,7 @@ const Welcome = (props) => {
   useEffect(() => {
     if (accessToken && isLoggedIn) {
       axios
-        .get('/api/get-user', {
+        .get('/api/user/get', {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -32,7 +32,7 @@ const Welcome = (props) => {
     <>
       <div className="App">
         <div className="auth-form-container">
-          <h1>Welcome to HEAT {user.firstName}!</h1>
+          <h1>Welcome to HEAT {user && user.firstName}!</h1>
           <br />
           <p>
             Please fill out the questionnaire to start using your

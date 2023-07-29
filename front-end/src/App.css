@@ -54,6 +54,52 @@
   padding-top: 10px;
 }
 
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.tab-button.active {
+  border-bottom: 2px solid white;
+}
+
+.groups-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.group-item {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+}
+
+.group-item button {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  margin-top: -5px;
+  margin-right: 10px;
+}
+
+.post-container {
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
 .navbar-list {
   list-style: none;
   padding: 0;

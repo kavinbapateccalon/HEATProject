@@ -124,6 +124,11 @@
   margin: 0.5rem;
 }
 
+.checkboxes {
+  text-align: left;
+  margin: 1rem;
+}
+
 label {
   text-align: left;
   padding: 0.25rem 0;

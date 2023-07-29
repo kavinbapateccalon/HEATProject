@@ -1,20 +1,27 @@
 package com.HEAT.HealthEducationAwarenessTeamApp.AuthControllers;
 
 
+import com.HEAT.HealthEducationAwarenessTeamApp.JPAqueries.UserRepository;
+import com.HEAT.HealthEducationAwarenessTeamApp.Models.User;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.web.bind.annotation.*;
+import com.HEAT.HealthEducationAwarenessTeamApp.Config.JWTService;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/auth")
 public class AuthenticationController {
 
     private final AuthenticationService service;
+    private JWTService jwtService;
+    private final UserRepository repository;
 
-    public AuthenticationController(AuthenticationService service) {
+
+    public AuthenticationController(AuthenticationService service, UserRepository repository) {
         this.service = service;
+        this.repository = repository;
     }
 
     @PostMapping("/register")
@@ -31,4 +38,14 @@ public class AuthenticationController {
     ) {
         return ResponseEntity.ok(service.login(request));
     }
+
+//    @GetMapping("/validate")
+//    public ResponseEntity<?> validateToken (@RequestParam String token, @AuthenticationPrincipal User user) {
+//        boolean isTokenValid = jwtService.isTokenValid(token, user);
+//        return ResponseEntity.ok(isTokenValid);
+//    }
+
+
 }
+
+

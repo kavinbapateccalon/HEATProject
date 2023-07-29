@@ -22,6 +22,14 @@ const Home = (props) => {
               Register
             </button>
           </div>
+          <div>
+            <button
+              className="link-btn"
+              onClick={() => navigate('/login')}
+            >
+              Already have an account? Log in here.
+            </button>
+          </div>
         </div>
       </div>
     </>

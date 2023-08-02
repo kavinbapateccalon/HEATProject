@@ -4,8 +4,9 @@ import './App.css';
 import { Register } from './pages/auth/Register';
 import { Login } from './pages/auth/Login';
 import Welcome from './pages/Welcome';
-import { Survey } from './pages/Survey';
-import { MetricSurvey } from './pages/MetricSurvey';
+import { Survey } from './pages/Questions/Survey';
+import MetricQuestions from './pages/Questions/MetricQuestions';
+import PersonalityQuestions from './pages/PersonalityQuestions';
 import Home from './pages/Home';
 import Dashboard from './pages/Recommendations/Dashboard';
 import Navbar from './utils/Navbar';
@@ -24,6 +25,7 @@ import {
 } from 'react-router-dom';
 
 import PrivateRoute from './utils/PrivateRoute';
+import FitnessNutritionQuestions from './pages/Questions/FitnessNutritionQuestions';
 
 function App() {
   return (
@@ -42,10 +44,26 @@ function App() {
             }
           />
           <Route
-            path="/metricsurvey"
+            path="/metric-questions"
             element={
               <PrivateRoute>
-                <MetricSurvey />
+                <MetricQuestions />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/personality-questions"
+            element={
+              <PrivateRoute>
+                <PersonalityQuestions />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/fitness-nutrition-questions"
+            element={
+              <PrivateRoute>
+                <FitnessNutritionQuestions />
               </PrivateRoute>
             }
           />

@@ -33,52 +33,7 @@ public class SocialController {
 
     @Autowired
     private ModelMapper modelMapper;
-//    @PostMapping("/{displayName}/add-friend")
-//    public void addFriend(@AuthenticationPrincipal User user, @PathVariable String displayName) {
-//        Optional<User> friendUser = userRepository.findByDisplayName(displayName);
-//        if (friendUser.isPresent()) {
-//            User currentUser = userRepository.getById(user.getId());
-//            User friend = friendUser.get();
-//            currentUser.getFriends().add(friend);
-//            userRepository.save(currentUser);
-//        } else {
-//            // Friend user not found, handle accordingly (e.g., return a 404 error)
-//            ResponseEntity.ok("Friend not found");
-//        }
-//    }
-//
-//    @GetMapping("/user/get-friends")
-//    public ResponseEntity<List<User>> getUserFriends(@AuthenticationPrincipal User user) {
-//        Optional<User> currentUserOptional = userRepository.findById(user.getId());
-//
-//        if (currentUserOptional.isPresent()) {
-//            User currentUser = currentUserOptional.get();
-//
-//            List<User> friends = currentUser.getFriends();
-//
-//            return ResponseEntity.ok(friends);
-//        } else {
-//            return ResponseEntity.notFound().build();
-//        }
-//    }
-//
-//    @DeleteMapping("/{displayName}/remove-friend")
-//    public ResponseEntity<?> removeFriend(@AuthenticationPrincipal User user, @PathVariable String displayName) {
-//        Optional<User> friendUser = userRepository.findByDisplayName(displayName);
-//
-//        if (friendUser.isPresent()) {
-//            User currentUser = userRepository.findById(user.getId()).orElseThrow();
-//            User friend = friendUser.get();
-//
-//            currentUser.getFriends().remove(friend);
-//            userRepository.save(currentUser);
-//
-//            return ResponseEntity.ok("Friend removed successfully");
-//        } else {
-//            // Friend user not found, handle accordingly (e.g., return a 404 error)
-//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Friend not found");
-//        }
-//    }
+
 
     @PostMapping("/group/create")
     public ResponseEntity<GroupDTO> newGroup(@AuthenticationPrincipal User user, @RequestBody Group group) {

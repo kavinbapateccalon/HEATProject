@@ -41,7 +41,7 @@ const Welcome = (props) => {
           <div>
             <button
               className="button"
-              onClick={() => navigate('/survey')}
+              onClick={() => navigate('/metric-questions')}
             >
               Start Questionnaire
             </button>

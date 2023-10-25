@@ -11,6 +11,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -31,6 +32,9 @@ public class User implements UserDetails {
     private LocalDateTime createdAt;
     @Column(unique = true)
     private String displayName;
+
+    @OneToMany(mappedBy = "user_id", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Recommendations> recommendations = new ArrayList<>();
 
     @Enumerated(EnumType.STRING)
     private Role role;

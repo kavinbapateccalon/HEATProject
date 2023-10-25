@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
-import AuthContext from '../utils/AuthProvider';
+import AuthContext from '../../utils/AuthProvider';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const PersonalityQuestions = (props) => {
   const accessToken = useContext(AuthContext);
@@ -9,6 +10,76 @@ const PersonalityQuestions = (props) => {
   // action when submitting form
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Collecting answers
+    const answers = {
+      q1: e.target.qp1.value,
+      q2: e.target.qp2.value,
+      q3: e.target.qp3.value,
+      q4: e.target.qp4.value,
+      q5: e.target.qp5.value,
+      q6: e.target.qp6.value,
+      q7: e.target.qp7.value,
+      q8: e.target.qp8.value,
+      q9: e.target.qp9.value,
+      q10: e.target.qp10.value,
+      q11: e.target.qp11.value,
+      q12: e.target.qp12.value,
+      q13: e.target.qp13.value,
+      q14: e.target.qp14.value,
+      q15: e.target.qp15.value,
+      q16: e.target.qp16.value,
+      q17: e.target.qp17.value,
+      q18: e.target.qp18.value,
+      q19: e.target.qp19.value,
+      q20: e.target.qp20.value,
+      q21: e.target.qp21.value,
+      q22: e.target.qp22.value,
+      q23: e.target.qp23.value,
+      q24: e.target.qp24.value,
+      q25: e.target.qp25.value,
+      q26: e.target.qp26.value,
+      q27: e.target.qp27.value,
+      q28: e.target.qp28.value,
+      q29: e.target.qp29.value,
+      q30: e.target.qp30.value,
+      q31: e.target.qp31.value,
+      q32: e.target.qp32.value,
+      q33: e.target.qp33.value,
+      q34: e.target.qp34.value,
+      q35: e.target.qp35.value,
+      q36: e.target.qp36.value,
+      q37: e.target.qp37.value,
+      q38: e.target.qp38.value,
+      q39: e.target.qp39.value,
+      q40: e.target.qp40.value,
+      q41: e.target.qp41.value,
+      q42: e.target.qp42.value,
+      q43: e.target.qp43.value,
+      q44: e.target.qp44.value,
+      q45: e.target.qp45.value,
+      q46: e.target.qp46.value,
+      q47: e.target.qp47.value,
+      q48: e.target.qp48.value,
+      q49: e.target.qp49.value,
+      q50: e.target.qp50.value,
+    };
+
+    // Axios POST request
+    axios
+      .post('/api/personality-questions/submit', answers, {
+        headers: {
+          Authorization: `Bearer ${accessToken.accessToken}`,
+        },
+      })
+      .then((response) => {
+        // Handle success here, such as navigation to another page
+        console.log(response);
+        navigate('/fitness-nutrition-questions');
+      })
+      .catch((error) => {
+        // Handle error here
+        console.error(error);
+      });
   };
 
   // what is displayed - return value
@@ -1393,39 +1464,39 @@ const PersonalityQuestions = (props) => {
             </div>
           </div>
 
-          <label htmlFor="qp39">38. Shirk my duties</label>
+          <label htmlFor="qp38">38. Shirk my duties</label>
           <div className="answers1-10">
             <div className="answerchoicetext">
-              <label htmlFor="qp39_1">1</label>
+              <label htmlFor="qp38_1">1</label>
             </div>
             <div className="answerchoicetext">
-              <label htmlFor="qp39_2">2</label>
+              <label htmlFor="qp38_2">2</label>
             </div>
             <div className="answerchoicetext">
-              <label htmlFor="qp39_3">3</label>
+              <label htmlFor="qp38_3">3</label>
             </div>
             <div className="answerchoicetext">
-              <label htmlFor="qp39_4">4</label>
+              <label htmlFor="qp38_4">4</label>
             </div>
             <div className="answerchoicetext">
-              <label htmlFor="qp39_5">5</label>
+              <label htmlFor="qp38_5">5</label>
             </div>
           </div>
           <div className="buttons1-10">
             <div className="answerchoice">
-              <input type="radio" value="1" name="qp39" id="qp39_1" />
+              <input type="radio" value="1" name="qp38" id="qp38_1" />
             </div>
             <div className="answerchoice">
-              <input type="radio" value="2" name="qp39" id="qp39_2" />
+              <input type="radio" value="2" name="qp38" id="qp38_2" />
             </div>
             <div className="answerchoice">
-              <input type="radio" value="3" name="qp39" id="qp39_3" />
+              <input type="radio" value="3" name="qp38" id="qp38_3" />
             </div>
             <div className="answerchoice">
-              <input type="radio" value="4" name="qp39" id="qp39_4" />
+              <input type="radio" value="4" name="qp38" id="qp38_4" />
             </div>
             <div className="answerchoice">
-              <input type="radio" value="5" name="qp39" id="qp39_5" />
+              <input type="radio" value="5" name="qp38" id="qp38_5" />
             </div>
           </div>
 
@@ -1865,11 +1936,7 @@ const PersonalityQuestions = (props) => {
             </div>
           </div>
 
-          <button
-            onClick={() => navigate('/fitness-nutrition-questions')}
-          >
-            Submit Personality Questions
-          </button>
+          <button type="submit">Submit Personality Questions</button>
         </form>
       </div>
     </div>

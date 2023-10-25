@@ -6,7 +6,7 @@ import { Login } from './pages/auth/Login';
 import Welcome from './pages/Welcome';
 import { Survey } from './pages/Questions/Survey';
 import MetricQuestions from './pages/Questions/MetricQuestions';
-import PersonalityQuestions from './pages/PersonalityQuestions';
+import PersonalityQuestions from './pages/Questions/PersonalityQuestions';
 import Home from './pages/Home';
 import Dashboard from './pages/Recommendations/Dashboard';
 import Navbar from './utils/Navbar';
@@ -18,6 +18,7 @@ import Fitness from './pages/Recommendations/Fitness';
 import Nutrition from './pages/Recommendations/Nutrition';
 import MentalHealth from './pages/Recommendations/MentalHealth';
 import GroupView from './pages/Community/GroupView';
+import Proceed from './pages/Proceed';
 import {
   BrowserRouter as Router,
   Routes,
@@ -72,6 +73,14 @@ function App() {
             element={
               <PrivateRoute>
                 <Welcome />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/proceed"
+            element={
+              <PrivateRoute>
+                <Proceed />
               </PrivateRoute>
             }
           />

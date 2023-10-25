@@ -1,14 +1,48 @@
 import React, { useContext } from 'react';
 import AuthContext from '../../utils/AuthProvider';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios'; // Importing axios
 
 const MetricQuestions = (props) => {
   const accessToken = useContext(AuthContext);
   const navigate = useNavigate();
-
+  console.log(accessToken);
   // action when submitting form
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Collecting answers
+    const answers = {
+      q1: e.target.q1.value,
+      q2: e.target.q2.value,
+      q3: e.target.q3.value,
+      q4: e.target.q4.value,
+      q5: e.target.q5.value,
+      q6: e.target.q6.value,
+      q7: e.target.q7.value,
+      q8: e.target.q8.value,
+      q9: e.target.days.value,
+      q10: e.target.yesorno.value,
+      q11: e.target.q11.value,
+      q12: e.target.q12.value,
+    };
+
+    // Axios POST request
+    axios
+      .post('/api/metric-questions/submit', answers, {
+        headers: {
+          Authorization: `Bearer ${accessToken.accessToken}`,
+        },
+      })
+      .then((response) => {
+        // Handle success here, such as navigation to another page
+        console.log(response);
+        navigate('/personality-questions');
+      })
+      .catch((error) => {
+        // Handle error here
+        console.error(error);
+      });
   };
 
   // what is displayed - return value
@@ -746,9 +780,7 @@ const MetricQuestions = (props) => {
             </div>
           </div>
 
-          <button onClick={() => navigate('/personality-questions')}>
-            Submit Metric Questions
-          </button>
+          <button type="submit">Submit Metric Questions</button>
         </form>
       </div>
     </div>
